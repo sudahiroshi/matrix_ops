@@ -9,3 +9,23 @@
     left: 0;
     top: 0;
 }
+
+.left {
+    float: left;
+}
+
+.clear {
+    clear: left;
+}
+
+td {
+    width: 20px;
+}
+
+.wide {
+    width: 80px;
+}
+
+.big {
+    font-size: 3em;
+}

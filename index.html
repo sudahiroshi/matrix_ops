@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="matrix.css">
+    <script src="nylon.js"></script>
+    <script src="matrix.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="ui">
+        <h4>回転と拡大・縮小</h4>
+        <label for="theta">θ</label>
+        <input type="range" name="theta" id="theta" min=-180 max=360 value=0>
+        <span id="theta_v"></span>
+        <label for="size">大きさ</label>
+        <input type="range" name="size" id="size" min=0 max=4.0 value=1 step=0.1>
+        <span id="size_v"></span>
+        <h4>回転前の平行移動</h4>
+        <label for="x1">X1</label>
+        <input type="range" name="x1" id="x1" min=0 max=4.0 value=1 step=0.1>
+        <span id="x1_v"></span>
+        <label for="y1">Y1</label>
+        <input type="range" name="y1" id="y1" min=0 max=4.0 value=1 step=0.1>
+        <span id="y1_v"></span>
+        <h4>回転後の平行移動</h4>
+        <label for="x2">X2</label>
+        <input type="range" name="x2" id="x2" min=0 max=4.0 value=1 step=0.1>
+        <span id="x2_v"></span>
+        <label for="y2">Y2</label>
+        <input type="range" name="y2" id="y2" min=0 max=4.0 value=1 step=0.1>
+        <span id="y2_v"></span>
+        <h4>行列による表現</h4>
+    </div>
+    <div>
+        <table class="left">
+            <tr>
+                <td rowspan="3" class="big">(</td>
+                <td id="xd">x'</td>
+                <td rowspan="3" class="big">)</td>
+            </tr>
+            <tr>
+                </td><td id="yd">y'</td>
+            </tr>
+            <tr>
+                <td>1</td>
+            </tr>
+        </table>
+        <table class="left">
+            <tr><td>&nbsp;</td></tr>
+            <tr><td>=</td></tr>
+            <tr><td>&nbsp;</td></tr>
+        </table>
+        <table class="left">
+            <tr>
+                <td rowspan="3" class="big">(</td>
+                <td>1</td>
+                <td>0</td>
+                <td id="x2"><span class="x2_m">1</span></td>
+                <td rowspan="3" class="big">)</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td id="y2"><span class="y2_m">1</span></td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <table class="left">
+            <tr>
+              <td rowspan="3" class="big">(</td>
+              <td class="wide">cos <span class="theta_m">0</span></td>
+              <td class="wide">-sin <span class="theta_m">0</span></td>
+              <td>0</td>
+              <td rowspan="3" class="big">)</td>
+            </tr>
+            <tr>
+                <td class="wide">sin <span class="theta_m">0</span></td>
+                <td class="wide">cos <span class="theta_m">0</span></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <table class="left">
+            <tr>
+              <td rowspan="3" class="big">(</td>
+              <td><span class="size_m">1</span></td>
+              <td>0</td>
+              <td>0</td>
+              <td rowspan="3" class="big">)</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td><span class="size_m">1</span></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <table class="left">
+            <tr>
+                <td rowspan="3" class="big">(</td>
+                <td>1</td>
+                <td>0</td>
+                <td id="x2"><span class="x1_m">1</span></td>
+                <td rowspan="3" class="big">)</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td id="y2"><span class="y1_m">1</span></td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <table class="left">
+            <tr>
+                <td rowspan="3" class="big">(</td>
+                <td>x</td>
+                <td rowspan="3" class="big">)</td>
+            </tr>
+            <tr>
+                <td>y</td>
+            </tr>
+            <tr>
+                <td>1</td>
+            </tr>
+        </table>
+    </div>
+    <div class="clear"></div>
+    <div id="graph">
+        <canvas id="graph1" width=400px height=400px class="gr"></canvas>
+        <canvas id="graph1b" width=400px height=400px class="gr"></canvas>
+    </div>
+</body>
+</html>

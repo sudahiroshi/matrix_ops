@@ -17,29 +17,68 @@ class MatrixGraph {
         this.y1 = 0.0;
         this.x2 = 0.0;
         this.y2 = 0.0;
+        this.theta_v = document.querySelector('#theta_v');
+        this.size_v = document.querySelector('#size_v');
+        this.x1_v = document.querySelector('#x1_v');
+        this.y1_v = document.querySelector('#y1_v');
+        this.x2_v = document.querySelector('#x2_v');
+        this.y2_v = document.querySelector('#y2_v');
+
+        // 初期状態の数値を表示
+        this.theta_v.textContent = document.querySelector('#theta').value;
+        this.size_v.textContent = document.querySelector('#size').value;
+        this.x1_v.textContent = document.querySelector('#x1').value;
+        this.y1_v.textContent = document.querySelector('#y1').value;
+        this.x2_v.textContent = document.querySelector('#x2').value;
+        this.y2_v.textContent = document.querySelector('#y2').value;
+
         const nl = new nylon();
         nl.on( 'theta', (keyword, hash) => {
             this.theta = hash['theta'];
+            this.theta_v.textContent = this.theta;
+            document.querySelectorAll('.theta_m').forEach((elm)=>{
+                elm.textContent = this.theta;
+            });
             this.redraw();
         });
         nl.on( 'size', (keyword, hash) => {
             this.size = Number(hash['size']);
+            this.size_v.textContent = this.size;
+            document.querySelectorAll('.size_m').forEach((elm)=>{
+                elm.textContent = this.size;
+            });
             this.redraw();
         });
         nl.on( 'x1', (keyword, hash) => {
             this.x1 = Number(hash['x1']);
+            this.x1_v.textContent = this.x1;
+            document.querySelectorAll('.x1_m').forEach((elm)=>{
+                elm.textContent = this.x1;
+            });
             this.redraw();
         });
         nl.on( 'y1', (keyword, hash) => {
             this.y1 = Number(hash['y1']);
+            this.y1_v.textContent = this.y1;
+            document.querySelectorAll('.y1_m').forEach((elm)=>{
+                elm.textContent = this.y1;
+            });
             this.redraw();
         });
         nl.on( 'x2', (keyword, hash) => {
             this.x2 = Number(hash['x2']);
+            this.x2_v.textContent = this.x2;
+            document.querySelectorAll('.x2_m').forEach((elm)=>{
+                elm.textContent = this.x2;
+            });
             this.redraw();
         });
         nl.on( 'y2', (keyword, hash) => {
             this.y2 = Number(hash['y2']);
+            this.y2_v.textContent = this.y2;
+            document.querySelectorAll('.y2_m').forEach((elm)=>{
+                elm.textContent = this.y2;
+            });
             this.redraw();
         });
 
